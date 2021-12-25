@@ -1,0 +1,29 @@
+name: member_app
+description: A new Flutter project.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.15.1 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  flutter_riverpod: ^1.0.3
+  dio: ^4.0.4
+  freezed_annotation: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+  freezed: ^1.1.0
+  build_runner: ^2.1.7
+
+flutter:
+  uses-material-design: true
