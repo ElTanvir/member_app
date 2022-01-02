@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:member_app/features/jokes/views/home_page.dart';
+import 'package:member_app/features/core/views/core_view.dart';
+import 'package:member_app/utils/constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +14,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ProviderScope(
       child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
+        title: 'Member App',
+        theme: ThemeData.light().copyWith(
+          colorScheme: const ColorScheme.light().copyWith(
+            primary: KEltColor.primary,
+            secondary: KEltColor.background,
+          ),
+          scaffoldBackgroundColor: KEltColor.background,
         ),
-        home: MyHomePage(),
+        home: const CoreView(),
       ),
     );
   }

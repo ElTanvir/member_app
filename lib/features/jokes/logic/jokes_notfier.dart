@@ -1,9 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:member_app/features/jokes/data/jokes.dart';
 import 'package:member_app/features/jokes/data/jokes_repo.dart';
-import 'package:member_app/utils/api_state.dart';
-
-import 'package:member_app/utils/network_exceptions.dart';
+import 'package:member_app/services/api_state.dart';
+import 'package:member_app/services/network_exceptions.dart';
 
 class JokesNotfier extends StateNotifier<ApiState<Jokes>> {
   final JokesRepository _jokesRepository;

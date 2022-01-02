@@ -1,3 +1,5 @@
+// ignore_for_file: type_annotate_public_apis
+
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -43,44 +45,63 @@ abstract class NetworkExceptions with _$NetworkExceptions {
 
   static String getErrorMessage(NetworkExceptions networkExceptions) {
     var errorMessage = "";
-    networkExceptions.when(notImplemented: () {
-      errorMessage = "Not Implemented";
-    }, requestCancelled: () {
-      errorMessage = "Request Cancelled";
-    }, internalServerError: () {
-      errorMessage = "Internal Server Error";
-    }, notFound: (String reason) {
-      errorMessage = reason;
-    }, serviceUnavailable: () {
-      errorMessage = "Service unavailable";
-    }, methodNotAllowed: () {
-      errorMessage = "Method Allowed";
-    }, badRequest: () {
-      errorMessage = "Bad request";
-    }, unauthorisedRequest: () {
-      errorMessage = "Unauthorised request";
-    }, unexpectedError: () {
-      errorMessage = "Unexpected error occurred";
-    }, requestTimeout: () {
-      errorMessage = "Connection request timeout";
-    }, noInternetConnection: () {
-      errorMessage = "No internet connection";
-    }, conflict: () {
-      errorMessage = "Error due to a conflict";
-    }, sendTimeout: () {
-      errorMessage = "Send timeout in connection with API server";
-    }, unableToProcess: () {
-      errorMessage = "Unable to process the data";
-    }, defaultError: (String error) {
-      errorMessage = error;
-    }, formatException: () {
-      errorMessage = "Unexpected error occurred";
-    }, notAcceptable: () {
-      errorMessage = "Not acceptable";
-    });
+    networkExceptions.when(
+      notImplemented: () {
+        errorMessage = "Not Implemented";
+      },
+      requestCancelled: () {
+        errorMessage = "Request Cancelled";
+      },
+      internalServerError: () {
+        errorMessage = "Internal Server Error";
+      },
+      notFound: (String reason) {
+        errorMessage = reason;
+      },
+      serviceUnavailable: () {
+        errorMessage = "Service unavailable";
+      },
+      methodNotAllowed: () {
+        errorMessage = "Method Allowed";
+      },
+      badRequest: () {
+        errorMessage = "Bad request";
+      },
+      unauthorisedRequest: () {
+        errorMessage = "Unauthorised request";
+      },
+      unexpectedError: () {
+        errorMessage = "Unexpected error occurred";
+      },
+      requestTimeout: () {
+        errorMessage = "Connection request timeout";
+      },
+      noInternetConnection: () {
+        errorMessage = "No internet connection";
+      },
+      conflict: () {
+        errorMessage = "Error due to a conflict";
+      },
+      sendTimeout: () {
+        errorMessage = "Send timeout in connection with API server";
+      },
+      unableToProcess: () {
+        errorMessage = "Unable to process the data";
+      },
+      defaultError: (String error) {
+        errorMessage = error;
+      },
+      formatException: () {
+        errorMessage = "Unexpected error occurred";
+      },
+      notAcceptable: () {
+        errorMessage = "Not acceptable";
+      },
+    );
     return errorMessage;
   }
 
+  // ignore: prefer_constructors_over_static_methods
   static NetworkExceptions getDioException(error) {
     if (error is Exception) {
       try {
@@ -133,7 +154,7 @@ abstract class NetworkExceptions with _$NetworkExceptions {
                       const NetworkExceptions.serviceUnavailable();
                   break;
                 default:
-                  var responseCode = error.response!.statusCode;
+                  final responseCode = error.response!.statusCode;
                   networkExceptions = NetworkExceptions.defaultError(
                     "Received invalid status code: $responseCode",
                   );
@@ -149,6 +170,7 @@ abstract class NetworkExceptions with _$NetworkExceptions {
           networkExceptions = const NetworkExceptions.unexpectedError();
         }
         return networkExceptions;
+        // ignore: unused_catch_clause
       } on FormatException catch (e) {
         // Helper.printError(e.toString());
         return const NetworkExceptions.formatException();
