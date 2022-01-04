@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 
-import 'package:member_app/features/transactions/data/refreshment_item_model.dart';
+import 'package:member_app/features/transactions/data/data_models/refreshment_item_model.dart';
 // ignore_for_file: prefer_if_null_operators, non_constant_identifier_names,argument_type_not_assignable
 
 class RefreshmentItemPurchaseModel {

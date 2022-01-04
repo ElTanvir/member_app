@@ -1,9 +1,9 @@
 import 'dart:convert';
+import 'package:member_app/features/food/data/data_models/food_menu_model.dart';
+import 'package:member_app/features/food/data/data_models/meal_data_model.dart';
+import 'package:member_app/features/food/data/demo_data/demo_food_menu_data.dart';
+import 'package:member_app/features/food/data/demo_data/demo_meal_data.dart';
 
-import 'package:member_app/features/food/data/demo_food_menu_data.dart';
-import 'package:member_app/features/food/data/demo_meal_data.dart';
-import 'package:member_app/features/food/data/food_menu_model.dart';
-import 'package:member_app/features/food/data/meal_data_model.dart';
 import 'package:member_app/utils/dateutil.dart';
 // ignore_for_file: prefer_if_null_operators, non_constant_identifier_names,argument_type_not_assignable
 

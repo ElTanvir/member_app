@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:member_app/features/food/data/food_menu_model.dart';
-import 'package:member_app/features/food/data/meal_data_model.dart';
+import 'package:member_app/features/food/data/data_models/food_menu_model.dart';
+import 'package:member_app/features/food/data/data_models/meal_data_model.dart';
 import 'package:member_app/features/food/data/meal_repo.dart';
 import 'package:member_app/services/api_state.dart';
 import 'package:member_app/services/network_exceptions.dart';

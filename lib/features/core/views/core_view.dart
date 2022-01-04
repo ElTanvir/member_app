@@ -6,7 +6,7 @@ import 'package:member_app/features/core/views/neu_button.dart';
 import 'package:member_app/features/core/views/profile_page.dart';
 import 'package:member_app/features/core/views/rent_page.dart';
 import 'package:member_app/features/food/views/food_page.dart';
-import 'package:member_app/features/transactions/views/refreshment_item_view.dart';
+import 'package:member_app/features/transactions/views/transactions_page.dart';
 import 'package:member_app/utils/constants.dart';
 
 class CoreView extends StatelessWidget {
@@ -169,7 +169,7 @@ class CoreView extends StatelessWidget {
                       const Profilewidget(),
                       const RentPage(),
                       const FoodView(),
-                      const RefreshmentItemsPurchaseView(),
+                      const TransactionsPage(),
                     ],
                   );
                 },

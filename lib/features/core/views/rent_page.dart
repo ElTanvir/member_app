@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:member_app/features/core/data/dummy_rental_info.dart';
+import 'package:member_app/features/core/data/demo_data/dummy_rental_info.dart';
 import 'package:member_app/utils/constants.dart';
 
 class RentPage extends StatelessWidget {

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:member_app/features/food/data/food_menu_model.dart';
-import 'package:member_app/features/food/data/meal_data_model.dart';
+import 'package:member_app/features/food/data/data_models/food_menu_model.dart';
+import 'package:member_app/features/food/data/data_models/meal_data_model.dart';
 import 'package:member_app/features/food/logic/food_provider.dart';
 import 'package:member_app/services/network_exceptions.dart';
 import 'package:member_app/utils/constants.dart';
+import 'package:member_app/utils/loader_widget.dart';
 
 class FoodView extends StatelessWidget {
   const FoodView({Key? key}) : super(key: key);
@@ -54,7 +55,7 @@ class FoodView extends StatelessWidget {
                       final glass = ref.watch(mealsMenuProvider);
                       return glass.map(
                         initial: (_) => const SizedBox(),
-                        loading: (_) => const CircularProgressIndicator(),
+                        loading: (_) => const LoaderWidget(),
                         loaded: (_) => ListView.builder(
                           itemCount: _.data.length,
                           itemBuilder: (context, index) =>
@@ -73,7 +74,7 @@ class FoodView extends StatelessWidget {
                       final glass = ref.watch(mealHistoryProvider);
                       return glass.map(
                         initial: (_) => const SizedBox(),
-                        loading: (_) => const CircularProgressIndicator(),
+                        loading: (_) => const LoaderWidget(),
                         loaded: (_) => ListView.builder(
                           itemCount: _.data.length,
                           itemBuilder: (context, index) =>
