@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_dynamic_calls
+
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
@@ -124,7 +126,8 @@ class RefreshmentItemPurchaseModel {
       uploader_info: map['uploader_info'],
       data: map['data'],
       items: List<RefreshmentItemModel>.from(
-          map['items']?.map((x) => RefreshmentItemModel.fromMap(x))),
+        map['items']?.map((x) => RefreshmentItemModel.fromMap(x)),
+      ),
     );
   }
 

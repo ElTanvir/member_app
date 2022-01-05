@@ -32,6 +32,7 @@ class FoodMenuNotifier extends StateNotifier<ApiState<List<FoodMenu>>> {
       final meals = await mealRepository.getMealList();
       state = ApiState.loaded(data: meals);
     } catch (e) {
+      // ignore: avoid_print
       print(e);
       state = ApiState.error(error: NetworkExceptions.getDioException(e));
     }

@@ -3,8 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:member_app/features/transactions/logic/transaction_provider.dart';
 import 'package:member_app/features/transactions/views/cards/payment_card.dart';
 import 'package:member_app/features/transactions/views/cards/refreshment_item_card.dart';
+import 'package:member_app/features/transactions/views/cards/rent_card.dart';
 import 'package:member_app/services/network_exceptions.dart';
 import 'package:member_app/utils/constants.dart';
+import 'package:member_app/utils/loader_v2.dart';
 import 'package:member_app/utils/loader_widget.dart';
 
 class TransactionsPage extends StatelessWidget {
@@ -13,7 +15,7 @@ class TransactionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: PreferredSize(
@@ -33,7 +35,10 @@ class TransactionsPage extends StatelessWidget {
                 text: 'Refreshment Item',
               ),
               Tab(
-                text: 'Previous',
+                text: 'Rent Info',
+              ),
+              Tab(
+                text: 'All Transaction',
               ),
             ],
           ),
@@ -47,7 +52,7 @@ class TransactionsPage extends StatelessWidget {
 
                   return data.map(
                     initial: (_) => const SizedBox(),
-                    loading: (_) => const LoaderWidget(),
+                    loading: (_) => const LoaderV2(),
                     loaded: (_) => ListView.builder(
                       shrinkWrap: true,
                       itemCount: _.data.length,
@@ -67,10 +72,30 @@ class TransactionsPage extends StatelessWidget {
             Center(
               child: Consumer(
                 builder: (context, ref, child) {
+                  final glass = ref.watch(rentDataProvider);
+                  return glass.map(
+                    initial: (_) => const SizedBox(),
+                    loading: (_) => const LoaderV2(),
+                    loaded: (_) => ListView.builder(
+                      itemCount: _.data.length,
+                      itemBuilder: (context, index) => RentCard(
+                        rentInfo: _.data[index],
+                      ),
+                    ),
+                    error: (_) => Text(
+                      NetworkExceptions.getErrorMessage(_.error),
+                    ),
+                  );
+                },
+              ),
+            ),
+            Center(
+              child: Consumer(
+                builder: (context, ref, child) {
                   final glass = ref.watch(purchaseDataPurchaseProvider);
                   return glass.map(
                     initial: (_) => const SizedBox(),
-                    loading: (_) => const LoaderWidget(),
+                    loading: (_) => const LoaderV2(),
                     loaded: (_) => ListView.builder(
                       itemCount: _.data.length,
                       itemBuilder: (context, index) => PaymentCard(

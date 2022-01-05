@@ -25,6 +25,7 @@ class FakeMealRepository extends IMealsRepository {
     final List<MealDataModel> _meals = [];
     // ignore: avoid_dynamic_calls
     await Future.delayed(const Duration(seconds: 2), () {
+      // ignore: avoid_dynamic_calls
       jsonDecode(demoMealsRaw).forEach((element) {
         _fmeals.add(MealDataModel.fromMap(element));
       });
@@ -58,9 +59,11 @@ class FakeMealRepository extends IMealsRepository {
   @override
   Future<List<FoodMenu>> getMealList() async {
     final List<FoodMenu> _foodMenuTemp = [];
-    List<FoodMenu> _foodMenu = [];
+    final List<FoodMenu> _foodMenu = [];
+    // ignore: unused_local_variable
     String week = '';
     await Future.delayed(const Duration(seconds: 2), () {
+      // ignore: avoid_dynamic_calls
       jsonDecode(demoFoodMenuData).forEach((element) {
         _foodMenuTemp.add(FoodMenu.fromMap(element));
       });

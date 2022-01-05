@@ -142,6 +142,14 @@ class CoreView extends StatelessWidget {
                               buttonSize: devicewidth * 0.55 * 0.3,
                               isChosen: indexProvider == 4,
                             ),
+                            NeuButton(
+                              icon: Icons.logout,
+                              onPressed: () {
+                                indexsetter.StateValue = 5;
+                              },
+                              buttonSize: devicewidth * 0.55 * 0.3,
+                              isChosen: indexProvider == 5,
+                            ),
                           ],
                         );
                       },
@@ -170,6 +178,12 @@ class CoreView extends StatelessWidget {
                       const RentPage(),
                       const FoodView(),
                       const TransactionsPage(),
+                      Container(
+                        decoration: KEltDecoration.boxDecoration1,
+                        child: Center(
+                          child: Text(indexProvider.toString()),
+                        ),
+                      ),
                     ],
                   );
                 },

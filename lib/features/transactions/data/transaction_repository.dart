@@ -2,12 +2,15 @@ import 'dart:convert';
 
 import 'package:member_app/features/transactions/data/data_models/payment_data_model.dart';
 import 'package:member_app/features/transactions/data/data_models/refreshmentitem_purchase_model.dart';
+import 'package:member_app/features/transactions/data/data_models/rent_info.dart';
 import 'package:member_app/features/transactions/data/dummy_data/dummy_refreshment_items_data.dart';
+import 'package:member_app/features/transactions/data/dummy_data/dummy_rent_info.dart';
 import 'package:member_app/features/transactions/data/dummy_data/dummy_transaction_data.dart';
 
 abstract class ITransactionRepository {
   Future<List<RefreshmentItemPurchaseModel>> getRefreshmentItemPurchaseList();
   Future<List<PaymentDataModel>> getPaymentData();
+  Future<List<RentInfo>> getRentData();
 }
 
 class FakeTransactions extends ITransactionRepository {
@@ -36,5 +39,18 @@ class FakeTransactions extends ITransactionRepository {
       });
     });
     return paymentData;
+  }
+
+  @override
+  Future<List<RentInfo>> getRentData() async {
+    final List<RentInfo> rentData = [];
+    await Future.delayed(const Duration(seconds: 2), () {
+      // ignore: avoid_dynamic_calls ,
+      jsonDecode(dymmyRentInfo).forEach((element) {
+        // ignore: argument_type_not_assignable
+        rentData.add(RentInfo.fromMap(element));
+      });
+    });
+    return rentData;
   }
 }
