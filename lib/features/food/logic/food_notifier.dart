@@ -16,7 +16,11 @@ class FoodHistoryNotifier extends StateNotifier<ApiState<List<MealDataModel>>> {
       final meals = await mealRepository.getMonthlyMeals(month: month);
       state = ApiState.loaded(data: meals);
     } catch (e) {
-      state = ApiState.error(error: NetworkExceptions.getDioException(e));
+      state = ApiState.error(
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
+      );
     }
   }
 }
@@ -32,9 +36,11 @@ class FoodMenuNotifier extends StateNotifier<ApiState<List<FoodMenu>>> {
       final meals = await mealRepository.getMealList();
       state = ApiState.loaded(data: meals);
     } catch (e) {
-      // ignore: avoid_print
-      print(e);
-      state = ApiState.error(error: NetworkExceptions.getDioException(e));
+      state = ApiState.error(
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
+      );
     }
   }
 }

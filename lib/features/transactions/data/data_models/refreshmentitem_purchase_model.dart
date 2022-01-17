@@ -1,133 +1,72 @@
-// ignore_for_file: avoid_dynamic_calls
-
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 
 import 'package:member_app/features/transactions/data/data_models/refreshment_item_model.dart';
-// ignore_for_file: prefer_if_null_operators, non_constant_identifier_names,argument_type_not_assignable
+
+// ignore_for_file: prefer_if_null_operators, non_constant_identifier_names,argument_type_not_assignable,avoid_dynamic_calls
 
 class RefreshmentItemPurchaseModel {
-  String? id;
-  String? branch_id;
-  String? branch_name;
-  String? buyer_id;
-  String? booking_id;
-  String? buying_code;
-  String? total_qty;
-  String? total_amount;
-  String? payment_status;
-  String? day;
-  String? month;
-  String? year;
-  String? note;
-  String? status;
-  String? uploader_info;
-  String? data;
-  List<RefreshmentItemModel> items;
+  String day;
+  String month;
+  String year;
+  int total_qty;
+  int total_amount;
+  String payment_status;
+  List<RefreshmentItemModel> refreshment_lists;
   RefreshmentItemPurchaseModel({
-    this.id,
-    this.branch_id,
-    this.branch_name,
-    this.buyer_id,
-    this.booking_id,
-    this.buying_code,
-    this.total_qty,
-    this.total_amount,
-    this.payment_status,
-    this.day,
-    this.month,
-    this.year,
-    this.note,
-    this.status,
-    this.uploader_info,
-    this.data,
-    required this.items,
+    required this.day,
+    required this.month,
+    required this.year,
+    required this.total_qty,
+    required this.total_amount,
+    required this.payment_status,
+    required this.refreshment_lists,
   });
 
   RefreshmentItemPurchaseModel copyWith({
-    String? id,
-    String? branch_id,
-    String? branch_name,
-    String? buyer_id,
-    String? booking_id,
-    String? buying_code,
-    String? total_qty,
-    String? total_amount,
-    String? payment_status,
     String? day,
     String? month,
     String? year,
-    String? note,
-    String? status,
-    String? uploader_info,
-    String? data,
-    List<RefreshmentItemModel>? items,
+    int? total_qty,
+    int? total_amount,
+    String? payment_status,
+    List<RefreshmentItemModel>? refreshment_lists,
   }) {
     return RefreshmentItemPurchaseModel(
-      id: id ?? this.id,
-      branch_id: branch_id ?? this.branch_id,
-      branch_name: branch_name ?? this.branch_name,
-      buyer_id: buyer_id ?? this.buyer_id,
-      booking_id: booking_id ?? this.booking_id,
-      buying_code: buying_code ?? this.buying_code,
-      total_qty: total_qty ?? this.total_qty,
-      total_amount: total_amount ?? this.total_amount,
-      payment_status: payment_status ?? this.payment_status,
       day: day ?? this.day,
       month: month ?? this.month,
       year: year ?? this.year,
-      note: note ?? this.note,
-      status: status ?? this.status,
-      uploader_info: uploader_info ?? this.uploader_info,
-      data: data ?? this.data,
-      items: items ?? this.items,
+      total_qty: total_qty ?? this.total_qty,
+      total_amount: total_amount ?? this.total_amount,
+      payment_status: payment_status ?? this.payment_status,
+      refreshment_lists: refreshment_lists ?? this.refreshment_lists,
     );
   }
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
-      'branch_id': branch_id,
-      'branch_name': branch_name,
-      'buyer_id': buyer_id,
-      'booking_id': booking_id,
-      'buying_code': buying_code,
-      'total_qty': total_qty,
-      'total_amount': total_amount,
-      'payment_status': payment_status,
       'day': day,
       'month': month,
       'year': year,
-      'note': note,
-      'status': status,
-      'uploader_info': uploader_info,
-      'data': data,
-      'items': items.map((x) => x.toMap()).toList(),
+      'total_qty': total_qty,
+      'total_amount': total_amount,
+      'payment_status': payment_status,
+      'refreshment_lists': refreshment_lists.map((x) => x.toMap()).toList(),
     };
   }
 
   factory RefreshmentItemPurchaseModel.fromMap(Map<String, dynamic> map) {
     return RefreshmentItemPurchaseModel(
-      id: map['id'],
-      branch_id: map['branch_id'],
-      branch_name: map['branch_name'],
-      buyer_id: map['buyer_id'],
-      booking_id: map['booking_id'],
-      buying_code: map['buying_code'],
-      total_qty: map['total_qty'],
-      total_amount: map['total_amount'],
-      payment_status: map['payment_status'],
-      day: map['day'],
-      month: map['month'],
-      year: map['year'],
-      note: map['note'],
-      status: map['status'],
-      uploader_info: map['uploader_info'],
-      data: map['data'],
-      items: List<RefreshmentItemModel>.from(
-        map['items']?.map((x) => RefreshmentItemModel.fromMap(x)),
-      ),
+      day: map['day'] ?? '',
+      month: map['month'] ?? '',
+      year: map['year'] ?? '',
+      total_qty: map['total_qty']?.toInt() ?? 0,
+      total_amount: map['total_amount']?.toInt() ?? 0,
+      payment_status: map['payment_status'] ?? '',
+      refreshment_lists: List<RefreshmentItemModel>.from(
+          map['refreshment_lists']
+              ?.map((x) => RefreshmentItemModel.fromMap(x))),
     );
   }
 
@@ -138,7 +77,7 @@ class RefreshmentItemPurchaseModel {
 
   @override
   String toString() {
-    return 'RefreshmentItemPurchaseModel(id: $id, branch_id: $branch_id, branch_name: $branch_name, buyer_id: $buyer_id, booking_id: $booking_id, buying_code: $buying_code, total_qty: $total_qty, total_amount: $total_amount, payment_status: $payment_status, day: $day, month: $month, year: $year, note: $note, status: $status, uploader_info: $uploader_info, data: $data, items: $items)';
+    return 'RefreshmentItemPurchaseModel(day: $day, month: $month, year: $year, total_qty: $total_qty, total_amount: $total_amount, payment_status: $payment_status, refreshment_lists: $refreshment_lists)';
   }
 
   @override
@@ -146,43 +85,23 @@ class RefreshmentItemPurchaseModel {
     if (identical(this, other)) return true;
 
     return other is RefreshmentItemPurchaseModel &&
-        other.id == id &&
-        other.branch_id == branch_id &&
-        other.branch_name == branch_name &&
-        other.buyer_id == buyer_id &&
-        other.booking_id == booking_id &&
-        other.buying_code == buying_code &&
-        other.total_qty == total_qty &&
-        other.total_amount == total_amount &&
-        other.payment_status == payment_status &&
         other.day == day &&
         other.month == month &&
         other.year == year &&
-        other.note == note &&
-        other.status == status &&
-        other.uploader_info == uploader_info &&
-        other.data == data &&
-        listEquals(other.items, items);
+        other.total_qty == total_qty &&
+        other.total_amount == total_amount &&
+        other.payment_status == payment_status &&
+        listEquals(other.refreshment_lists, refreshment_lists);
   }
 
   @override
   int get hashCode {
-    return id.hashCode ^
-        branch_id.hashCode ^
-        branch_name.hashCode ^
-        buyer_id.hashCode ^
-        booking_id.hashCode ^
-        buying_code.hashCode ^
+    return day.hashCode ^
+        month.hashCode ^
+        year.hashCode ^
         total_qty.hashCode ^
         total_amount.hashCode ^
         payment_status.hashCode ^
-        day.hashCode ^
-        month.hashCode ^
-        year.hashCode ^
-        note.hashCode ^
-        status.hashCode ^
-        uploader_info.hashCode ^
-        data.hashCode ^
-        items.hashCode;
+        refreshment_lists.hashCode;
   }
 }

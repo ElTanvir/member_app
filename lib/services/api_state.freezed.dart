@@ -1,6 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, require_trailing_commas
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'api_state.dart';
 
@@ -11,8 +12,7 @@ part of 'api_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 class _$ApiStateTearOff {
@@ -32,7 +32,7 @@ class _$ApiStateTearOff {
     );
   }
 
-  _ApiStateerror<T> error<T>({required NetworkExceptions error}) {
+  _ApiStateerror<T> error<T>({required String error}) {
     return _ApiStateerror<T>(
       error: error,
     );
@@ -49,7 +49,7 @@ mixin _$ApiState<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) loaded,
-    required TResult Function(NetworkExceptions error) error,
+    required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,7 +57,7 @@ mixin _$ApiState<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(NetworkExceptions error)? error,
+    TResult Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,7 +65,7 @@ mixin _$ApiState<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(NetworkExceptions error)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -156,7 +156,7 @@ class _$_ApiStateinitial<T> implements _ApiStateinitial<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) loaded,
-    required TResult Function(NetworkExceptions error) error,
+    required TResult Function(String error) error,
   }) {
     return initial();
   }
@@ -167,7 +167,7 @@ class _$_ApiStateinitial<T> implements _ApiStateinitial<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(NetworkExceptions error)? error,
+    TResult Function(String error)? error,
   }) {
     return initial?.call();
   }
@@ -178,7 +178,7 @@ class _$_ApiStateinitial<T> implements _ApiStateinitial<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(NetworkExceptions error)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -273,7 +273,7 @@ class _$_ApiStateloading<T> implements _ApiStateloading<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) loaded,
-    required TResult Function(NetworkExceptions error) error,
+    required TResult Function(String error) error,
   }) {
     return loading();
   }
@@ -284,7 +284,7 @@ class _$_ApiStateloading<T> implements _ApiStateloading<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(NetworkExceptions error)? error,
+    TResult Function(String error)? error,
   }) {
     return loading?.call();
   }
@@ -295,7 +295,7 @@ class _$_ApiStateloading<T> implements _ApiStateloading<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(NetworkExceptions error)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -369,14 +369,12 @@ class __$ApiStateloadedCopyWithImpl<T, $Res>
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(
-      _ApiStateloaded<T>(
-        data: data == freezed
-            ? _value.data
-            : data // ignore: cast_nullable_to_non_nullable
-                as T,
-      ),
-    );
+    return _then(_ApiStateloaded<T>(
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
   }
 }
 
@@ -416,7 +414,7 @@ class _$_ApiStateloaded<T> implements _ApiStateloaded<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) loaded,
-    required TResult Function(NetworkExceptions error) error,
+    required TResult Function(String error) error,
   }) {
     return loaded(data);
   }
@@ -427,7 +425,7 @@ class _$_ApiStateloaded<T> implements _ApiStateloaded<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(NetworkExceptions error)? error,
+    TResult Function(String error)? error,
   }) {
     return loaded?.call(data);
   }
@@ -438,7 +436,7 @@ class _$_ApiStateloaded<T> implements _ApiStateloaded<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(NetworkExceptions error)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -499,9 +497,7 @@ abstract class _$ApiStateerrorCopyWith<T, $Res> {
   factory _$ApiStateerrorCopyWith(
           _ApiStateerror<T> value, $Res Function(_ApiStateerror<T>) then) =
       __$ApiStateerrorCopyWithImpl<T, $Res>;
-  $Res call({NetworkExceptions error});
-
-  $NetworkExceptionsCopyWith<$Res> get error;
+  $Res call({String error});
 }
 
 /// @nodoc
@@ -519,21 +515,12 @@ class __$ApiStateerrorCopyWithImpl<T, $Res>
   $Res call({
     Object? error = freezed,
   }) {
-    return _then(
-      _ApiStateerror<T>(
-        error: error == freezed
-            ? _value.error
-            : error // ignore: cast_nullable_to_non_nullable
-                as NetworkExceptions,
-      ),
-    );
-  }
-
-  @override
-  $NetworkExceptionsCopyWith<$Res> get error {
-    return $NetworkExceptionsCopyWith<$Res>(_value.error, (value) {
-      return _then(_value.copyWith(error: value));
-    });
+    return _then(_ApiStateerror<T>(
+      error: error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
@@ -543,7 +530,7 @@ class _$_ApiStateerror<T> implements _ApiStateerror<T> {
   const _$_ApiStateerror({required this.error});
 
   @override
-  final NetworkExceptions error;
+  final String error;
 
   @override
   String toString() {
@@ -573,7 +560,7 @@ class _$_ApiStateerror<T> implements _ApiStateerror<T> {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) loaded,
-    required TResult Function(NetworkExceptions error) error,
+    required TResult Function(String error) error,
   }) {
     return error(this.error);
   }
@@ -584,7 +571,7 @@ class _$_ApiStateerror<T> implements _ApiStateerror<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(NetworkExceptions error)? error,
+    TResult Function(String error)? error,
   }) {
     return error?.call(this.error);
   }
@@ -595,7 +582,7 @@ class _$_ApiStateerror<T> implements _ApiStateerror<T> {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? loaded,
-    TResult Function(NetworkExceptions error)? error,
+    TResult Function(String error)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -643,10 +630,9 @@ class _$_ApiStateerror<T> implements _ApiStateerror<T> {
 }
 
 abstract class _ApiStateerror<T> implements ApiState<T> {
-  const factory _ApiStateerror({required NetworkExceptions error}) =
-      _$_ApiStateerror<T>;
+  const factory _ApiStateerror({required String error}) = _$_ApiStateerror<T>;
 
-  NetworkExceptions get error;
+  String get error;
   @JsonKey(ignore: true)
   _$ApiStateerrorCopyWith<T, _ApiStateerror<T>> get copyWith =>
       throw _privateConstructorUsedError;

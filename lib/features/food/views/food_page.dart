@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:member_app/features/food/data/data_models/food_menu_model.dart';
-import 'package:member_app/features/food/data/data_models/meal_data_model.dart';
 import 'package:member_app/features/food/logic/food_provider.dart';
 import 'package:member_app/features/food/views/cards/meal_menu_card.dart';
 import 'package:member_app/features/food/views/cards/previous_food_card.dart';
 import 'package:member_app/services/network_exceptions.dart';
 import 'package:member_app/utils/constants.dart';
 import 'package:member_app/utils/loader_v2.dart';
-import 'package:member_app/utils/loader_widget.dart';
+import 'package:member_app/utils/widgets.dart';
 
 class FoodView extends StatelessWidget {
   const FoodView({Key? key}) : super(key: key);
@@ -59,14 +57,18 @@ class FoodView extends StatelessWidget {
                       return glass.map(
                         initial: (_) => const SizedBox(),
                         loading: (_) => const LoaderV2(),
-                        loaded: (_) => ListView.builder(
-                          itemCount: _.data.length,
-                          itemBuilder: (context, index) =>
-                              MealMenuCard(foodMenu: _.data[index]),
-                        ),
-                        error: (_) => Text(
-                          NetworkExceptions.getErrorMessage(_.error),
-                        ),
+                        loaded: (_) {
+                          if (_.data.isNotEmpty) {
+                            return ListView.builder(
+                              itemCount: _.data.length,
+                              itemBuilder: (context, index) =>
+                                  MealMenuCard(foodMenu: _.data[index]),
+                            );
+                          } else {
+                            return const NoRecordWidget();
+                          }
+                        },
+                        error: (_) => ErrorHandleWidget(error: _.error),
                       );
                     },
                   ),
@@ -78,14 +80,18 @@ class FoodView extends StatelessWidget {
                       return glass.map(
                         initial: (_) => const SizedBox(),
                         loading: (_) => const LoaderV2(),
-                        loaded: (_) => ListView.builder(
-                          itemCount: _.data.length,
-                          itemBuilder: (context, index) =>
-                              PreviousFoodCard(mealDataModel: _.data[index]),
-                        ),
-                        error: (_) => Text(
-                          NetworkExceptions.getErrorMessage(_.error),
-                        ),
+                        loaded: (_) {
+                          if (_.data.isNotEmpty) {
+                            return ListView.builder(
+                              itemCount: _.data.length,
+                              itemBuilder: (context, index) => PreviousFoodCard(
+                                  mealDataModel: _.data[index]),
+                            );
+                          } else {
+                            return const NoRecordWidget();
+                          }
+                        },
+                        error: (_) => ErrorHandleWidget(error: _.error),
                       );
                     },
                   ),

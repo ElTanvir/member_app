@@ -1,121 +1,171 @@
 const dummyRefreshMentData = '''
-[
-    {
-        "id": "143",
-        "branch_id": "BAR_100920_294562129482664344_1599721915",
-        "branch_name": "Super Home 8",
-        "buyer_id": "0013171849",
-        "booking_id": "01_12_2020__01_58_05_PM_88573486_3246280901336254060",
-        "buying_code": "c177347a0cea0a5926b45a85c5583f39",
-        "total_qty": "1",
-        "total_amount": "40",
-        "payment_status": "Paid",
-        "day": "05",
-        "month": "01",
-        "year": "2021",
-        "note": "",
-        "status": "1",
-        "uploader_info": "Branch_Sales Consultant___hossain.faruk1996@gmail.com___BAR_100920_294562129482664344_1599721915",
-        "data": "10/12/2021",
-        "items":[{
-        "id": "169",
-        "buer_code": "c177347a0cea0a5926b45a85c5583f39",
-        "product_code": "9d045b5d43379f78b4207678aaf7e5f6",
-        "product_name": "CocaCola- 600ml",
-        "qty": "1",
-        "amount": "40",
-        "data": "05/01/2021"
-    }]
-    },
-    {
-        "id": "178",
-        "branch_id": "BAR_100920_294562129482664344_1599721915",
-        "branch_name": "Super Home 8",
-        "buyer_id": "0013171849",
-        "booking_id": "01_12_2020__01_58_05_PM_88573486_3246280901336254060",
-        "buying_code": "df0f5294e5caaa9fb94cac1e8ae7f3f5",
-        "total_qty": "1",
-        "total_amount": "15",
-        "payment_status": "Paid",
-        "day": "08",
-        "month": "01",
-        "year": "2021",
-        "note": "",
-        "status": "1",
-        "uploader_info": "Branch_Sales Consultant___hossain.faruk1996@gmail.com___BAR_100920_294562129482664344_1599721915",
-        "data": "10/12/2021",
-        "items":[{
-        "id": "223",
-        "buer_code": "df0f5294e5caaa9fb94cac1e8ae7f3f5",
-        "product_code": "798c196c2dd9193abf452cfa9519cb11",
-        "product_name": "Coffee",
-        "qty": "1",
-        "amount": "15",
-        "data": "08/01/2021"
-    }]
-    },
-    {
-        "id": "179",
-        "branch_id": "BAR_100920_294562129482664344_1599721915",
-        "branch_name": "Super Home 8",
-        "buyer_id": "0013171849",
-        "booking_id": "01_12_2020__01_58_05_PM_88573486_3246280901336254060",
-        "buying_code": "ab4c098671861bc7868ac3558578b73b",
-        "total_qty": "2",
-        "total_amount": "30",
-        "payment_status": "Paid",
-        "day": "08",
-        "month": "01",
-        "year": "2021",
-        "note": "",
-        "status": "1",
-        "uploader_info": "Branch_Sales Consultant___hossain.faruk1996@gmail.com___BAR_100920_294562129482664344_1599721915",
-        "data": "10/12/2021",
-        "items":[{
-        "id": "224",
-        "buer_code": "ab4c098671861bc7868ac3558578b73b",
-        "product_code": "798c196c2dd9193abf452cfa9519cb11",
-        "product_name": "Coffee",
-        "qty": "2",
-        "amount": "30",
-        "data": "08/01/2021"
-    }]
-    },
-    {
-        "id": "288",
-        "branch_id": "BAR_100920_294562129482664344_1599721915",
-        "branch_name": "Super Home 8",
-        "buyer_id": "0013171849",
-        "booking_id": "01_12_2020__01_58_05_PM_88573486_3246280901336254060",
-        "buying_code": "4e8c7f53d0939cc59163d731e500a79a",
-        "total_qty": "4",
-        "total_amount": "50",
-        "payment_status": "Paid",
-        "day": "22",
-        "month": "01",
-        "year": "2021",
-        "note": "",
-        "status": "1",
-        "uploader_info": "Branch Incharge___20shariful@gmail.com___BAR_100920_294562129482664344_1599721915",
-        "data": "10/12/2021",
-        "items":[{
-        "id": "397",
-        "buer_code": "4e8c7f53d0939cc59163d731e500a79a",
-        "product_code": "798c196c2dd9193abf452cfa9519cb11",
-        "product_name": "Coffee",
-        "qty": "2",
-        "amount": "30",
-        "data": "22/01/2021"
-    },
-    {
-        "id": "398",
-        "buer_code": "4e8c7f53d0939cc59163d731e500a79a",
-        "product_code": "59b8200a8804342f9c7ba62d1d80a16d",
-        "product_name": "Tea",
-        "qty": "2",
-        "amount": "20",
-        "data": "22/01/2021"
-    }]
-    }
-]
+{
+    "paid_items": [
+        {
+            "id": 143,
+            "date": "10/11/2021",
+            "total_qty": 1,
+            "total_amount": 40,
+            "payment_status": "Paid",
+            "items": [
+                {
+                    "item_name": "CocaCola- 600ml",
+                    "qty": 1,
+                    "amount": 40
+                }
+            ]
+        },
+        {
+            "id": 178,
+            "date": "10/11/2021",
+            "total_qty": 1,
+            "total_amount": 15,
+            "payment_status": "Paid",
+            "items": [
+                {
+                    "item_name": "Coffee",
+                    "qty": 1,
+                    "amount": 15
+                }
+            ]
+        },
+        {
+            "id": 179,
+            "date": "10/11/2021",
+            "total_qty": 2,
+            "total_amount": 30,
+            "payment_status": "Paid",
+            "items": [
+                {
+                    "item_name": "Coffee",
+                    "qty": 2,
+                    "amount": 30
+                }
+            ]
+        },
+        {
+            "id": 234,
+            "date": "10/11/2021",
+            "total_qty": 1,
+            "total_amount": 10,
+            "payment_status": "Paid",
+            "items": [
+                {
+                    "item_name": "Tea",
+                    "qty": 1,
+                    "amount": 10
+                }
+            ]
+        },
+        {
+            "id": 288,
+            "date": "10/11/2021",
+            "total_qty": 4,
+            "total_amount": 50,
+            "payment_status": "Paid",
+            "items": [
+                {
+                    "item_name": "Coffee",
+                    "qty": 2,
+                    "amount": 30
+                },
+                {
+                    "item_name": "Tea",
+                    "qty": 2,
+                    "amount": 20
+                }
+            ]
+        },
+        {
+            "id": 288,
+            "date": "10/11/2021",
+            "total_qty": 4,
+            "total_amount": 50,
+            "payment_status": "Paid",
+            "items": [
+                {
+                    "item_name": "Coffee",
+                    "qty": 2,
+                    "amount": 30
+                },
+                {
+                    "item_name": "Tea",
+                    "qty": 2,
+                    "amount": 20
+                }
+            ]
+        },
+        {
+            "id": 592,
+            "date": "10/11/2021",
+            "total_qty": 3,
+            "total_amount": 30,
+            "payment_status": "Paid",
+            "items": [
+                {
+                    "item_name": "Tea",
+                    "qty": 3,
+                    "amount": 30
+                }
+            ]
+        },
+        {
+            "id": 654,
+            "date": "10/11/2021",
+            "total_qty": 1,
+            "total_amount": 10,
+            "payment_status": "Paid",
+            "items": [
+                {
+                    "item_name": "Tea",
+                    "qty": 1,
+                    "amount": 10
+                }
+            ]
+        },
+        {
+            "id": 1199,
+            "date": "10/11/2021",
+            "total_qty": 1,
+            "total_amount": 10,
+            "payment_status": "Paid",
+            "items": [
+                {
+                    "item_name": "Tea",
+                    "qty": 1,
+                    "amount": 10
+                }
+            ]
+        },
+        {
+            "id": 2201,
+            "date": "10/11/2021",
+            "total_qty": 2,
+            "total_amount": 30,
+            "payment_status": "Paid",
+            "items": [
+                {
+                    "item_name": "Coffee",
+                    "qty": 2,
+                    "amount": 30
+                }
+            ]
+        },
+        {
+            "id": 2220,
+            "date": "10/11/2021",
+            "total_qty": 2,
+            "total_amount": 30,
+            "payment_status": "Paid",
+            "items": [
+                {
+                    "item_name": "Coffee",
+                    "qty": 2,
+                    "amount": 30
+                }
+            ]
+        }
+    ],
+    "due_items": []
+}
 ''';

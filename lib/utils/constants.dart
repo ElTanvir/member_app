@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class KEltColor {
@@ -9,11 +8,6 @@ class KEltColor {
   static const Color card = Color(0xFFCDDEFF);
   static const Color highLight = Color(0xFFFF5959);
   static const Color black = Color(0xFF191919);
-}
-
-class KEltString {
-  KEltString._();
-  static String baseImageurl = 'http://erp.superhostelbd.com/super_home/';
 }
 
 class KEltDecoration {
@@ -54,6 +48,30 @@ class KEltDecoration {
         color: KEltColor.primary.withOpacity(0.2),
       ),
     ],
+  );
+}
+
+class KEltInputDecoration {
+  KEltInputDecoration._();
+  static InputDecoration inputDecoration = const InputDecoration(
+    fillColor: KEltColor.background,
+    filled: true,
+    labelStyle: TextStyle(color: KEltColor.primary),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(10)),
+      borderSide: BorderSide(color: Colors.blue),
+    ),
+    disabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(10)),
+      borderSide: BorderSide(color: Colors.grey),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(10)),
+    ),
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.all(Radius.circular(10)),
+      borderSide: BorderSide.none,
+    ),
   );
 }
 

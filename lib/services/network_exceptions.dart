@@ -9,6 +9,8 @@ part 'network_exceptions.freezed.dart';
 
 @freezed
 abstract class NetworkExceptions with _$NetworkExceptions {
+  const factory NetworkExceptions.firebaseException(String reason) =
+      FBaseException;
   const factory NetworkExceptions.requestCancelled() = RequestCancelled;
 
   const factory NetworkExceptions.unauthorisedRequest() = UnauthorisedRequest;
@@ -96,6 +98,9 @@ abstract class NetworkExceptions with _$NetworkExceptions {
       },
       notAcceptable: () {
         errorMessage = "Not acceptable";
+      },
+      firebaseException: (String reason) {
+        errorMessage = reason;
       },
     );
     return errorMessage;

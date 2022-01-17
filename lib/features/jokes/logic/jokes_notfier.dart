@@ -16,7 +16,11 @@ class JokesNotfier extends StateNotifier<ApiState<Jokes>> {
           await _jokesRepository.getJoke(category: category, type: type);
       state = ApiState.loaded(data: joke);
     } catch (e) {
-      state = ApiState.error(error: NetworkExceptions.getDioException(e));
+      state = ApiState.error(
+        error: NetworkExceptions.getErrorMessage(
+          NetworkExceptions.getDioException(e),
+        ),
+      );
     }
   }
 }

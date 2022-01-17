@@ -24,7 +24,7 @@ class RefreshmentItemCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Date: ${refreshmentItemPurchaseMode.data}',
+                      'Date: ${refreshmentItemPurchaseMode.day}/${refreshmentItemPurchaseMode.month}/${refreshmentItemPurchaseMode.year}',
                       style: KEltTextStyle.titleText,
                     ),
                     Text(
@@ -42,12 +42,12 @@ class RefreshmentItemCard extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: refreshmentItemPurchaseMode.items
+                  children: refreshmentItemPurchaseMode.refreshment_lists
                       .map(
                         (e) => Padding(
                           padding: const EdgeInsets.symmetric(vertical: 5),
                           child: Text(
-                            'Item Name : ${e.product_name}\nQTY : ${e.qty}\nAmount : ${e.amount} BDT',
+                            'Item Name : ${e.refreshment_item.item_name}\nQTY : ${e.qty}\nAmount : ${e.amount} BDT',
                             style: KEltTextStyle.subtitleText,
                           ),
                         ),

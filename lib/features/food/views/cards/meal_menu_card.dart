@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:member_app/features/food/data/data_models/food_menu_model.dart';
 import 'package:member_app/utils/constants.dart';
+import 'package:member_app/utils/utility_provider.dart';
 
-class MealMenuCard extends StatelessWidget {
+class MealMenuCard extends ConsumerWidget {
   const MealMenuCard({Key? key, required this.foodMenu}) : super(key: key);
   final FoodMenu foodMenu;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10.0, 10, 20, 10),
       child: Container(
@@ -20,7 +22,7 @@ class MealMenuCard extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Image.network(
-                    '${KEltString.baseImageurl}${foodMenu.food_image}',
+                    '${ref.watch(baseImageUrlProvider)}${foodMenu.food_image}',
                   ),
                 ),
               ),
