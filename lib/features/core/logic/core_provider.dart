@@ -8,6 +8,7 @@ final homePageButtonIndexProvider =
     StateNotifierProvider<HomePageButtonIndex, int>(
   (ref) => HomePageButtonIndex(),
 );
-final userProvider = StateNotifierProvider<UserNotifier, ApiState<UserModel>>(
+final userProvider =
+    StateNotifierProvider.autoDispose<UserNotifier, ApiState<UserModel>>(
   (ref) => UserNotifier(ref.watch(dioProvider)),
 );

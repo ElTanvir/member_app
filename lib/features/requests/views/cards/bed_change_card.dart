@@ -33,7 +33,7 @@ class BedChangeCard extends StatelessWidget {
                 style: KEltTextStyle.subtitleText,
               ),
               Text(
-                'From : ${bedChangeModel.current_bed}',
+                'To : ${bedChangeModel.current_bed}',
                 style: KEltTextStyle.subtitleText,
               ),
             ],

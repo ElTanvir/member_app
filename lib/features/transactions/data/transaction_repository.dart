@@ -1,9 +1,8 @@
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:member_app/features/transactions/data/data_models/refreshment_data.dart';
-
 import 'package:member_app/features/transactions/data/data_models/rent_info.dart';
+import 'package:member_app/features/transactions/data/data_models/rent_response.dart';
 import 'package:member_app/features/transactions/data/data_models/transaction_data_model.dart';
 import 'package:member_app/features/transactions/data/dummy_data/dummy_refreshment_items_data.dart';
 import 'package:member_app/features/transactions/data/dummy_data/dummy_rent_info.dart';
@@ -15,7 +14,10 @@ abstract class ITransactionRepository {
     int page,
   );
   Future<List<TransactionModel>> getPaymentData(Dio dio);
-  Future<List<RentInfo>> getRentData(Dio dio);
+  Future<RentResponse> getRentData(
+    Dio dio,
+    int page,
+  );
 }
 
 class FakeTransactions extends ITransactionRepository {
@@ -48,13 +50,16 @@ class FakeTransactions extends ITransactionRepository {
   }
 
   @override
-  Future<List<RentInfo>> getRentData(Dio dio) async {
-    final List<RentInfo> rentData = [];
+  Future<RentResponse> getRentData(
+    Dio dio,
+    int page,
+  ) async {
+    final RentResponse rentData = RentResponse(data: [], last_page: 1);
     await Future.delayed(const Duration(seconds: 2), () {
       // ignore: avoid_dynamic_calls ,
       jsonDecode(dymmyRentInfo).forEach((element) {
         // ignore: argument_type_not_assignable
-        rentData.add(RentInfo.fromMap(element));
+        // rentData.add(RentInfo.fromMap(element));
       });
     });
     return rentData;
@@ -86,8 +91,12 @@ class LiveTransactionRepo extends ITransactionRepository {
   }
 
   @override
-  Future<List<RentInfo>> getRentData(Dio dio) {
-    // TODO: implement getRentData
-    throw UnimplementedError();
+  Future<RentResponse> getRentData(
+    Dio dio,
+    int page,
+  ) async {
+    final Response response = await dio.get('/member_rent_details?page=$page');
+    // ignore: avoid_dynamic_calls,argument_type_not_assignable,unused_local_variable
+    return RentResponse.fromMap(response.data['data']);
   }
 }

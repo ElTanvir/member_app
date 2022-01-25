@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:member_app/features/core/views/ctckupper.dart';
 
 class KEltColor {
   KEltColor._();
@@ -48,6 +49,13 @@ class KEltDecoration {
         color: KEltColor.primary.withOpacity(0.2),
       ),
     ],
+  );
+
+  static ConcaveDecoration innerShadow = ConcaveDecoration(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(30),
+    ),
+    depression: 5,
   );
 }
 

@@ -26,19 +26,20 @@ class RentCard extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(2.0),
                       child: Text(
-                        'Date: ${rentInfo.date}',
+                        'Month: ${rentInfo.rental_month}',
                         style: KEltTextStyle.titleText,
                       ),
                     ),
-                    RentCardTextWidget(text: 'Month: ${rentInfo.rental_month}'),
+                    RentCardTextWidget(
+                      text: 'Transaction ID: ${rentInfo.transaction_id}',
+                    ),
                     RentCardTextWidget(
                       text:
-                          'Package: ${rentInfo.id} - ${rentInfo.package_name}', //TODO: FIX
+                          'Package: ${rentInfo.package_category} - ${rentInfo.package}',
                     ),
                     RentCardTextWidget(
-                      text: 'Amount: ${rentInfo.rent_amount} BDT',
+                      text: 'Amount: ${rentInfo.total_amount} BDT',
                     ),
-                    RentCardTextWidget(text: 'Status: ${rentInfo.rent_status}'),
                   ],
                 ),
               ),
@@ -47,24 +48,23 @@ class RentCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     RentCardTextWidget(
-                      text:
-                          'Rent Amount: ${(rentInfo.rent_amount == '') ? '0' : rentInfo.rent_amount} BDT',
+                      text: 'Rent Amount: ${rentInfo.rent_amount} BDT',
                     ),
                     RentCardTextWidget(
                       text:
-                          'Electricity: ${(rentInfo.date == '') ? '0' : rentInfo.date} BDT', //TODO: FIX
+                          'Electricity: ${(rentInfo.electricity == '') ? '0' : rentInfo.electricity} BDT',
                     ),
                     RentCardTextWidget(
                       text:
-                          'Parking: ${(rentInfo.date == '') ? '0' : rentInfo.date} BDT',
+                          'Parking: ${(rentInfo.parking == '') ? '0' : rentInfo.parking} BDT',
                     ),
                     RentCardTextWidget(
                       text:
-                          'Locker: ${(rentInfo.date == '') ? '0' : rentInfo.date} BDT',
+                          'Locker: ${(rentInfo.locker == '') ? '0' : rentInfo.locker} BDT',
                     ),
                     RentCardTextWidget(
                       text:
-                          'Tea/Coffee: ${(rentInfo.date == '') ? '0' : rentInfo.date} BDT',
+                          'Tea/Coffee: ${(rentInfo.tea_coffee == '') ? '0' : rentInfo.tea_coffee} BDT',
                     ),
                   ],
                 ),

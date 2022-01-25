@@ -82,8 +82,8 @@ class PaginationView extends ConsumerWidget {
                                               )
                                               .statevalue = index + 1;
                                         },
-                                        child: Material(
-                                          color: ref
+                                        child: Container(
+                                          decoration: ref
                                                       .watch(
                                                         paginationIndexProvider(
                                                           widgetName,
@@ -91,11 +91,11 @@ class PaginationView extends ConsumerWidget {
                                                       )
                                                       .statevalue ==
                                                   index + 1
-                                              ? Colors.green
-                                              : KEltColor.background,
-                                          borderRadius:
-                                              BorderRadius.circular(50),
-                                          elevation: 10,
+                                              ? KEltDecoration.innerShadow
+                                              : KEltDecoration.boxDecoration1,
+                                          // borderRadius:
+                                          //     BorderRadius.circular(50),
+                                          // elevation: 10,
                                           child: Padding(
                                             padding: const EdgeInsets.all(
                                               5,
@@ -147,6 +147,9 @@ class PaginationView extends ConsumerWidget {
                             ),
                           ),
                         ),
+                        const SizedBox(
+                          width: 10,
+                        )
                       ],
                     ),
                   )

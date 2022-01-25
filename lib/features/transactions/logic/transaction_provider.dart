@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:member_app/features/pagination/logic/pagination_provider.dart';
 import 'package:member_app/features/transactions/data/data_models/refreshment_data.dart';
 import 'package:member_app/features/transactions/data/data_models/rent_info.dart';
+import 'package:member_app/features/transactions/data/data_models/rent_response.dart';
 import 'package:member_app/features/transactions/data/data_models/transaction_data_model.dart';
 import 'package:member_app/features/transactions/data/transaction_repository.dart';
 import 'package:member_app/features/transactions/logic/transaction_notifier.dart';
@@ -29,10 +30,11 @@ final transactionDataPurchaseProvider = StateNotifierProvider.autoDispose<
     ref.watch(dioProvider),
   ),
 );
-final rentDataProvider = StateNotifierProvider.autoDispose<RentDataNotifier,
-    ApiState<List<RentInfo>>>(
-  (ref) => RentDataNotifier(
+final rentDataProvider = StateNotifierProvider.family
+    .autoDispose<RentDataNotifier, ApiState<RentResponse>, String>(
+  (ref, name) => RentDataNotifier(
     ref.watch(transcationRepoProvider),
     ref.watch(dioProvider),
+    ref.watch(paginationIndexProvider(name)),
   ),
 );

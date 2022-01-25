@@ -4,7 +4,7 @@ import 'package:member_app/features/transactions/logic/transaction_provider.dart
 import 'package:member_app/features/transactions/views/cards/rent_card.dart';
 import 'package:member_app/features/transactions/views/cards/transaction_card.dart';
 import 'package:member_app/features/transactions/views/refreshment_page.dart';
-import 'package:member_app/services/network_exceptions.dart';
+import 'package:member_app/features/transactions/views/rent_page.dart';
 import 'package:member_app/utils/constants.dart';
 import 'package:member_app/utils/loader_v2.dart';
 import 'package:member_app/utils/widgets.dart';
@@ -53,30 +53,7 @@ class TransactionsPage extends StatelessWidget {
             body: TabBarView(
               children: [
                 const RefreshmentItemPage(),
-                Center(
-                  child: Consumer(
-                    builder: (context, ref, child) {
-                      final glass = ref.watch(rentDataProvider);
-                      return glass.map(
-                        initial: (_) => const SizedBox(),
-                        loading: (_) => const LoaderV2(),
-                        loaded: (_) {
-                          if (_.data.isNotEmpty) {
-                            return ListView.builder(
-                              itemCount: _.data.length,
-                              itemBuilder: (context, index) => RentCard(
-                                rentInfo: _.data[index],
-                              ),
-                            );
-                          } else {
-                            return const NoRecordWidget();
-                          }
-                        },
-                        error: (_) => ErrorHandleWidget(error: _.error),
-                      );
-                    },
-                  ),
-                ),
+                const RentPage(),
                 Center(
                   child: Consumer(
                     builder: (context, ref, child) {

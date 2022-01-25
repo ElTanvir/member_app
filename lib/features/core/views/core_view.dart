@@ -5,6 +5,7 @@ import 'package:member_app/features/core/logic/core_provider.dart';
 import 'package:member_app/features/core/views/neu_button.dart';
 import 'package:member_app/features/core/views/profile_page.dart';
 import 'package:member_app/features/food/views/food_page.dart';
+import 'package:member_app/features/newsportal/views/newsportal_page.dart';
 import 'package:member_app/features/requests/views/requests_page.dart';
 import 'package:member_app/features/transactions/views/transactions_page.dart';
 import 'package:member_app/services/network_exceptions.dart';
@@ -196,12 +197,7 @@ class CoreView extends ConsumerWidget {
                                 return IndexedStack(
                                   index: indexProvider,
                                   children: [
-                                    Container(
-                                      decoration: KEltDecoration.boxDecoration1,
-                                      child: const Center(
-                                        child: Text('Home Page'),
-                                      ),
-                                    ),
+                                    const NewsPortalPage(),
                                     Container(
                                       decoration: KEltDecoration.boxDecoration1,
                                       child: const Center(

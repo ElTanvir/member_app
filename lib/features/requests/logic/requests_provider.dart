@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:member_app/features/pagination/logic/pagination_provider.dart';
 import 'package:member_app/features/requests/data/data_models/bed_change_response.dart';
-import 'package:member_app/features/requests/data/data_models/package_change_response_model.dart';
+import 'package:member_app/features/requests/data/data_models/booking_package_details.dart';
 import 'package:member_app/features/requests/data/requests_repository.dart';
 import 'package:member_app/features/requests/logic/requests_notfier.dart';
 import 'package:member_app/main.dart';
@@ -19,11 +19,12 @@ final requestRepoProvider = Provider<IRequestRepopsitory>(
 );
 
 final packageChangeListProvider = StateNotifierProvider.family.autoDispose<
-    PackageChangeNotifier, ApiState<PackageChageResponseModel>, String>(
+    PackageChangeNotifier,
+    ApiState<List<BookingPackageChageResponseModel>>,
+    String>(
   (ref, name) => PackageChangeNotifier(
     ref.watch(requestRepoProvider),
     ref.watch(dioProvider),
-    ref.watch(paginationIndexProvider(name)),
   ),
 );
 final bedChangeListProvider = StateNotifierProvider.family

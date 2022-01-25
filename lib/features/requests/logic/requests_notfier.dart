@@ -1,24 +1,23 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:member_app/features/requests/data/data_models/bed_change_response.dart';
-import 'package:member_app/features/requests/data/data_models/package_change_response_model.dart';
+import 'package:member_app/features/requests/data/data_models/booking_package_details.dart';
 import 'package:member_app/features/requests/data/requests_repository.dart';
 import 'package:member_app/services/api_state.dart';
 import 'package:member_app/services/network_exceptions.dart';
 
 class PackageChangeNotifier
-    extends StateNotifier<ApiState<PackageChageResponseModel>> {
+    extends StateNotifier<ApiState<List<BookingPackageChageResponseModel>>> {
   final IRequestRepopsitory iRequestRepopsitory;
   final Dio dio;
-  final int page;
-  PackageChangeNotifier(this.iRequestRepopsitory, this.dio, this.page)
+  PackageChangeNotifier(this.iRequestRepopsitory, this.dio)
       : super(const ApiState.initial()) {
     getPackageShiftList();
   }
   Future<void> getPackageShiftList() async {
     try {
       state = const ApiState.loading();
-      final data = await iRequestRepopsitory.getPackageChangeList(dio, page);
+      final data = await iRequestRepopsitory.getPackageChangeList(dio);
       state = ApiState.loaded(data: data);
     } catch (e) {
       state = ApiState.error(
